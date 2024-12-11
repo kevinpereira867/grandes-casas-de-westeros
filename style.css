@@ -1,4 +1,4 @@
-/* Estilos gerais do body */
+
 body {
     margin: 0;
     padding: 0;
@@ -8,11 +8,11 @@ body {
     background: linear-gradient(72deg, black 35%, black, black 99%);
 }
 
-/* Estilos do contêiner de slides */
+
 .content {
     height: 520px;
-    width: 935px; /* Largura fixa para telas grandes */
-    max-width: 95%; /* Para garantir que não fique maior que 95% da tela em qualquer dispositivo */
+    width: 935px; 
+    max-width: 95%;
     border-radius: 20px;
     overflow: hidden;
     position: absolute;
@@ -22,14 +22,14 @@ body {
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-/* Estilos para as imagens dos slides */
+
 .content .slide img {
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
 
-/* Estilos para o conteúdo do slide */
+
 .slide-content {
     position: absolute;
     top: 50%;
@@ -37,15 +37,14 @@ body {
     transform: translate(-50%, -50%);
     color: white;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.6); /* Fundo semitransparente */
+    background-color: rgba(0, 0, 0, 0.6); 
     padding: 20px;
     border-radius: 10px;
-    width: 90%; /* Garantir que o conteúdo tenha espaço adequado */
-    opacity: 0; /* Inicialmente o texto é invisível */
-    transition: opacity 2s ease; /* Transição suave para opacidade */
+    width: 90%; 
+    opacity: 0; 
+    transition: opacity 2s ease; 
 }
 
-/* Efeito de transição automática de opacidade para o texto */
 #slide1:checked ~ .slides .slide:nth-child(1) .slide-content {
     opacity: 1;
 }
@@ -74,12 +73,12 @@ body {
     opacity: 1;
 }
 
-/* Efeito hover para o slide */
+
 .slide:hover .slide-content {
-    opacity: 1; /* Quando o mouse passa sobre o slide, o texto aparece */
+    opacity: 1; 
 }
 
-/* Estilos da navegação */
+
 .navigation {
     position: absolute;
     bottom: 30px;
@@ -102,27 +101,27 @@ body {
     background-color: white;
 }
 
-/* Estilos para esconder os inputs */
+
 input {
     display: none;
 }
 
-/* Estilos para os slides */
+
 .slides {
     display: flex;
-    width: 900%; /* Ajustado para 9 slides */
+    width: 900%; 
     height: 100%;
     transition: transform 0.4s ease;
 }
 
-/* Estilos de cada slide individual */
+
 .slide {
-    width: 11.11%; /* Cada slide ocupa 11.11% da largura do contêiner */
+    width: 11.11%; 
     flex-shrink: 0;
-    position: relative; /* Necessário para o posicionamento do conteúdo */
+    position: relative; 
 }
 
-/* Controle dos slides usando os inputs */
+
 #slide1:checked ~ .slides {
     transform: translateX(0);
 }
@@ -151,13 +150,11 @@ input {
     transform: translateX(-88.88%);
 }
 
-/* Consultas de Mídia para Responsividade */
 
-/* Tela de tablet (máximo 768px) */
 @media (max-width: 768px) {
     .content {
-        width: 80%;  /* Reduz a largura do contêiner */
-        height: 400px; /* Ajusta a altura */
+        width: 80%;  
+        height: 400px; 
     }
     .content .slide img {
         object-fit: cover;
@@ -166,7 +163,7 @@ input {
         padding: 15px;
     }
     .navigation {
-        bottom: 20px; /* Ajusta a posição da navegação */
+        bottom: 20px; 
     }
     .bar {
         width: 12px;
@@ -174,7 +171,7 @@ input {
     }
 }
 
-/* Tela de smartphone (máximo 480px) */
+
 @media (max-width: 480px) {
     .content {
         width: 95%; /* Ajusta o tamanho do contêiner */
@@ -192,11 +189,11 @@ input {
     }
 }
 
-/* Tela de desktop (mínimo de 1024px) */
+
 @media (min-width: 1024px) {
     .content {
-        width: 935px; /* Largura fixa para telas grandes */
-        height: 520px; /* Altura fixa */
+        width: 935px; 
+        height: 520px; 
     }
     .slide-content {
         padding: 20px;
