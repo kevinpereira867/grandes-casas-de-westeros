@@ -1,11 +1,207 @@
+/* Estilos gerais do body */
 body {
-    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(72deg, black 35%, black, black 99%);
 }
 
-header {
-    background-color: #222;
-    color: #fff;
+/* Estilos do contêiner de slides */
+.content {
+    height: 520px;
+    width: 935px; /* Largura fixa para telas grandes */
+    max-width: 95%; /* Para garantir que não fique maior que 95% da tela em qualquer dispositivo */
+    border-radius: 20px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+/* Estilos para as imagens dos slides */
+.content .slide img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Estilos para o conteúdo do slide */
+.slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo semitransparente */
     padding: 20px;
+    border-radius: 10px;
+    width: 90%; /* Garantir que o conteúdo tenha espaço adequado */
+    opacity: 0; /* Inicialmente o texto é invisível */
+    transition: opacity 2s ease; /* Transição suave para opacidade */
 }
 
-/* ... outros estilos ... */
+/* Efeito de transição automática de opacidade para o texto */
+#slide1:checked ~ .slides .slide:nth-child(1) .slide-content {
+    opacity: 1;
+}
+#slide2:checked ~ .slides .slide:nth-child(2) .slide-content {
+    opacity: 1;
+}
+#slide3:checked ~ .slides .slide:nth-child(3) .slide-content {
+    opacity: 1;
+}
+#slide4:checked ~ .slides .slide:nth-child(4) .slide-content {
+    opacity: 1;
+}
+#slide5:checked ~ .slides .slide:nth-child(5) .slide-content {
+    opacity: 1;
+}
+#slide6:checked ~ .slides .slide:nth-child(6) .slide-content {
+    opacity: 1;
+}
+#slide7:checked ~ .slides .slide:nth-child(7) .slide-content {
+    opacity: 1;
+}
+#slide8:checked ~ .slides .slide:nth-child(8) .slide-content {
+    opacity: 1;
+}
+#slide9:checked ~ .slides .slide:nth-child(9) .slide-content {
+    opacity: 1;
+}
+
+/* Efeito hover para o slide */
+.slide:hover .slide-content {
+    opacity: 1; /* Quando o mouse passa sobre o slide, o texto aparece */
+}
+
+/* Estilos da navegação */
+.navigation {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.bar {
+    width: 15px;
+    height: 15px;
+    border: 2px solid white;
+    border-radius: 50%;
+    margin: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.bar:hover {
+    background-color: white;
+}
+
+/* Estilos para esconder os inputs */
+input {
+    display: none;
+}
+
+/* Estilos para os slides */
+.slides {
+    display: flex;
+    width: 900%; /* Ajustado para 9 slides */
+    height: 100%;
+    transition: transform 0.4s ease;
+}
+
+/* Estilos de cada slide individual */
+.slide {
+    width: 11.11%; /* Cada slide ocupa 11.11% da largura do contêiner */
+    flex-shrink: 0;
+    position: relative; /* Necessário para o posicionamento do conteúdo */
+}
+
+/* Controle dos slides usando os inputs */
+#slide1:checked ~ .slides {
+    transform: translateX(0);
+}
+#slide2:checked ~ .slides {
+    transform: translateX(-11.11%);
+}
+#slide3:checked ~ .slides {
+    transform: translateX(-22.22%);
+}
+#slide4:checked ~ .slides {
+    transform: translateX(-33.33%);
+}
+#slide5:checked ~ .slides {
+    transform: translateX(-44.44%);
+}
+#slide6:checked ~ .slides {
+    transform: translateX(-55.55%);
+}
+#slide7:checked ~ .slides {
+    transform: translateX(-66.66%);
+}
+#slide8:checked ~ .slides {
+    transform: translateX(-77.77%);
+}
+#slide9:checked ~ .slides {
+    transform: translateX(-88.88%);
+}
+
+/* Consultas de Mídia para Responsividade */
+
+/* Tela de tablet (máximo 768px) */
+@media (max-width: 768px) {
+    .content {
+        width: 80%;  /* Reduz a largura do contêiner */
+        height: 400px; /* Ajusta a altura */
+    }
+    .content .slide img {
+        object-fit: cover;
+    }
+    .slide-content {
+        padding: 15px;
+    }
+    .navigation {
+        bottom: 20px; /* Ajusta a posição da navegação */
+    }
+    .bar {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+/* Tela de smartphone (máximo 480px) */
+@media (max-width: 480px) {
+    .content {
+        width: 95%; /* Ajusta o tamanho do contêiner */
+        height: 300px; /* Ajusta a altura */
+    }
+    .slide-content {
+        padding: 10px;
+    }
+    .navigation {
+        bottom: 15px;
+    }
+    .bar {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* Tela de desktop (mínimo de 1024px) */
+@media (min-width: 1024px) {
+    .content {
+        width: 935px; /* Largura fixa para telas grandes */
+        height: 520px; /* Altura fixa */
+    }
+    .slide-content {
+        padding: 20px;
+    }
+    .navigation {
+        bottom: 30px;
+    }
+}
