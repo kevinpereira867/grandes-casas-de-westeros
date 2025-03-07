@@ -1,4 +1,3 @@
-
 let contador= 1;
 
 setInterval(function(){
