@@ -1,10 +1,27 @@
-let contador= 1;
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+const slides = document.querySelectorAll('input[name="slide"]');
+let currentIndex = 0;
 
-setInterval(function(){
-    document.getElementById('slide'+contador).checked= true;
-    contador++;
-if(contador> 9 ){
-    contador=1;
+function updateSlide(index) {
+  if (index < 0) index = slides.length - 1;
+  if (index >= slides.length) index = 0;
+  slides[index].checked = true;
+  currentIndex = index;
 }
 
-}, 3000);
+prevBtn.addEventListener("click", () => {
+  updateSlide(currentIndex - 1);
+});
+
+nextBtn.addEventListener("click", () => {
+  updateSlide(currentIndex + 1);
+});
+
+slides.forEach((slide, index) => {
+  slide.addEventListener("change", () => {
+    if (slide.checked) {
+      currentIndex = index;
+    }
+  });
+});
