@@ -2,16 +2,16 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  height: 100vh;
-  width: 100vw;
+  height: 100vh; 
+  width: 100vw; 
   background: linear-gradient(72deg, black 35%, black, black 99%);
   overflow: hidden;
 }
 
 .content {
-  height: 520px;
-  width: 935px; 
-  max-width: 95%;
+  height: 90vh; 
+  width: 100vw; 
+  max-width: 100%; 
   border-radius: 20px;
   overflow: hidden;
   position: absolute;
@@ -22,9 +22,9 @@ body {
 }
 
 .content .slide img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+  height: 100%; 
+  width: 100%; 
+  object-fit: contain; 
 }
 
 .slide-content {
@@ -34,12 +34,12 @@ body {
   transform: translate(-50%, -50%);
   color: white;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.6); 
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 20px;
   border-radius: 10px;
-  width: 90%; 
-  opacity: 0; 
-  transition: opacity 2s ease; 
+  width: 90%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 #slide1:checked ~ .slides .slide:nth-child(1) .slide-content { opacity: 1; }
@@ -53,7 +53,7 @@ body {
 #slide9:checked ~ .slides .slide:nth-child(9) .slide-content { opacity: 1; }
 
 .slide:hover .slide-content {
-  opacity: 1; 
+  opacity: 1;
 }
 
 .navigation {
@@ -84,15 +84,15 @@ input {
 
 .slides {
   display: flex;
-  width: 900%; 
+  width: 900%;
   height: 100%;
-  transition: transform 0.4s ease;
+  transition: transform 0.5s ease;
 }
 
 .slide {
-  width: 11.11%; 
+  width: 11.11%;
   flex-shrink: 0;
-  position: relative; 
+  position: relative;
 }
 
 #slide1:checked ~ .slides { transform: translateX(0); }
@@ -105,7 +105,6 @@ input {
 #slide8:checked ~ .slides { transform: translateX(-77.77%); }
 #slide9:checked ~ .slides { transform: translateX(-88.88%); }
 
-/* BOTÕES DE NAVEGAÇÃO ANTERIOR E PRÓXIMO */
 .buttons {
   position: absolute;
   top: 50%;
@@ -132,11 +131,11 @@ input {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
-/* RESPONSIVIDADE */
+
 @media (max-width: 768px) {
   .content {
-    width: 80%;  
-    height: 400px; 
+    width: 100%;
+    height: 70vh; 
   }
   .content .slide img {
     object-fit: cover;
@@ -145,7 +144,7 @@ input {
     padding: 15px;
   }
   .navigation {
-    bottom: 20px; 
+    bottom: 20px;
   }
   .bar {
     width: 12px;
@@ -155,8 +154,8 @@ input {
 
 @media (max-width: 480px) {
   .content {
-    width: 95%; 
-    height: 300px; 
+    width: 100%;
+    height: 60vh; 
   }
   .slide-content {
     padding: 10px;
@@ -167,18 +166,5 @@ input {
   .bar {
     width: 10px;
     height: 10px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .content {
-    width: 935px; 
-    height: 520px; 
-  }
-  .slide-content {
-    padding: 20px;
-  }
-  .navigation {
-    bottom: 30px;
   }
 }
